@@ -1,13 +1,15 @@
 import React from "react";
 import { useState } from "react";
-const TodoList = () => {
+import DisplayListTodo from "./DisplayListTodo";
+import addTodo from "./addTodo";
+const Home = () => {
   const [todo, setTodo] = useState("");
   const randomIntFromInterval = (min, max) => {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
-  let [listTodo, setListTodo] = useState([
+  const [listTodo, setListTodo] = useState([
     { id: 1, name: "harry" },
     { id: 2, name: "dev" },
     { id: 3, name: "manh" },
@@ -18,19 +20,23 @@ const TodoList = () => {
       id: randomIntFromInterval(5, 999),
       name: todo,
     };
+    console.log(listTodo);
+    if (!todo) {
+      alert("please enter todo");
+      return 0;
+    }
     //catch1
     // let curentTodo = listTodo;
     // curentTodo.push(todoItem);
-    // setListTodo([curentTodo]);
+    // setListTodo(curentTodo);
+    //catch2
     setListTodo([...listTodo, todoItem]);
+    setTodo("");
   };
-  const handleDeleteBtn = (id) => {
-    alert(`you deleted item by id:${id}`);
-    let updateListTodo = listTodo.filter((item) => item.id != id);
-    setListTodo(updateListTodo);
-  };
+
   return (
     <div>
+    
       <label>Name</label>
       <input
         type="text"
@@ -50,22 +56,10 @@ const TodoList = () => {
       </button>
       <br />
       <br />
-      <div>List todo:</div>
-      {listTodo.map((item) => {
-        console.log(item);
-        return (
-          <div
-            key={item.id}
-            onClick={() => {
-              handleDeleteBtn(item.id);
-            }}
-          >
-            {item.name}
-          </div>
-        );
-      })}
+      <DisplayListTodo childData={listTodo} />
+      add
     </div>
   );
 };
 
-export default TodoList;
+export default Home;
