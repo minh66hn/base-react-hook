@@ -1,0 +1,26 @@
+.products-container{
+    display:flex;
+    flex-direction: row;
+.content-right{
+    border: 1px solid green;
+    margin-top: 0px;
+    width:50%;
+    .title{
+        font-size:18px;
+        font-weight: 600;
+        text-align: left;
+        padding: 10px 0;
+    }
+    .price{
+        font-size: 20px;
+        font-weight: 600;
+        padding: 5px 0 15px 0;
+    }
+    .size{
+        
+    }
+}
+.content-left{
+    width:50%;
+}
+}
