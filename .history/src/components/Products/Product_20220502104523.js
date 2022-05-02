@@ -14,6 +14,7 @@ const Product = () => {
   const handleClick = (index) => {
     setPhotoIndex(index);
     setIsOpen(true);
+    setImglarge(images[index]);
   };
   return (
     <div>
@@ -22,7 +23,7 @@ const Product = () => {
           mainSrc={images[photoIndex]}
           nextSrc={images[(photoIndex + 1) % images.length]}
           prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-          onCloseRequest={() => setIsOpen(false)}
+          onCloseRequest={() => setIsOpen(true)}
           onMovePrevRequest={() =>
             setPhotoIndex((photoIndex + images.length - 1) % images.length)
           }
@@ -37,7 +38,7 @@ const Product = () => {
           <div className="img-up">
             <img
               src={imglarge}
-              onClick={() => handleClick(images.indexOf(imglarge))}
+              onClick={() => handleClick(setImglarge.length + 1)}
             />
           </div>
           <div className="img-down">

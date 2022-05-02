@@ -11,10 +11,7 @@ const Product = () => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [imglarge, setImglarge] = useState(snicker1);
-  const handleClick = (index) => {
-    setPhotoIndex(index);
-    setIsOpen(true);
-  };
+  const handleClick = (index) => {}
   return (
     <div>
       {isOpen && (
@@ -22,7 +19,7 @@ const Product = () => {
           mainSrc={images[photoIndex]}
           nextSrc={images[(photoIndex + 1) % images.length]}
           prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-          onCloseRequest={() => setIsOpen(false)}
+          onCloseRequest={() => setIsOpen(true)}
           onMovePrevRequest={() =>
             setPhotoIndex((photoIndex + images.length - 1) % images.length)
           }
@@ -35,10 +32,7 @@ const Product = () => {
       <div className="products-container">
         <div className="content-left">
           <div className="img-up">
-            <img
-              src={imglarge}
-              onClick={() => handleClick(images.indexOf(imglarge))}
-            />
+            <img src={imglarge} onClick={() => setIsOpen(true)} />
           </div>
           <div className="img-down">
             <div className="img-small">

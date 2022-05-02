@@ -37,7 +37,7 @@ const Product = () => {
           <div className="img-up">
             <img
               src={imglarge}
-              onClick={() => handleClick(images.indexOf(imglarge))}
+              onClick={() => handleClick(setImglarge.length)}
             />
           </div>
           <div className="img-down">

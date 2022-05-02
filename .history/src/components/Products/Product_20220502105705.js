@@ -12,8 +12,10 @@ const Product = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [imglarge, setImglarge] = useState(snicker1);
   const handleClick = (index) => {
+    console.log(index);
     setPhotoIndex(index);
     setIsOpen(true);
+    setImglarge(images[index]);
   };
   return (
     <div>
@@ -37,7 +39,7 @@ const Product = () => {
           <div className="img-up">
             <img
               src={imglarge}
-              onClick={() => handleClick(images.indexOf(imglarge))}
+              onClick={() => handleClick(setImglarge.indexOf(imglarge))}
             />
           </div>
           <div className="img-down">
